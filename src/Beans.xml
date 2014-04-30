@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+    <!--     default-init-method="init"
+    default-destroy-method="destroy" -->
+    
+    <bean id="helloWorld" class="spring.tutorial.HelloWorld">
+    	 <property name="message1" value="Hello!!!"></property> 
+    	 <property name="message2" value="Hello second World!!!"></property> 
+    </bean>
+    
+    <bean id="helloChina" class="spring.tutorial.HelloChina" parent="helloWorld">
+    	<property name="message1" value="Hello China!!!"></property> 
+    	<property name="message3"><null/></property> 
+    </bean>
+    
+    <bean id="textEditor" class="spring.tutorial.TextEditor">
+    	<property name="spellChecker">
+    		<bean id="spellChecker" class="spring.tutorial.SpellChecker"></bean>
+    	</property>
+    </bean>
+    
+    <bean id="collection" class="spring.tutorial.CollectionSample">
+    	<property name="someList">
+    		<list>
+    			<value>India</value>
+    			<value>India</value>
+    			<value>China</value>
+    			<value>USA</value>
+    		</list>
+    	</property>
+    	<property name="someSet">
+    		<set>
+    			<value>India</value>
+    			<value>India</value>
+    			<value>China</value>
+    			<value>USA</value>
+    		</set>
+    	</property>
+    	<property name="someMap">
+    		<map>
+    			<entry key="1" value=""></entry>
+    			<entry key="2" value="India"></entry>
+    			<entry key="3" value="China"></entry>
+    			<entry key="4" value="USA"></entry>
+    		</map>
+    	</property>
+    	<property name="someProp">
+    		<props>
+    			<prop key="one">India</prop>
+    			<prop key="two">India</prop>
+    			<prop key="three">China</prop>
+    			<prop key="four">USA</prop>
+    		</props>
+    	</property>
+    </bean>
+<!-- 	<bean class="spring.tutorial.InitHelloWorld"> -->
+		
+	
+</beans>
